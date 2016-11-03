@@ -1,39 +1,8 @@
 # Final Model P6 LU
 #----------------------
-import arcpy,os,time, shutil
+import arcpy,os,time,shutil
 from arcpy import env 
 from arcpy.sa import *
-
-def p6setup():
-	#List of folders to be created
-	f_list = [ "D:/B__P6_Analyst" , "D:/B__P6_Analyst/A__P6_Temp", "D:/B__P6_Analyst/A__P6_Masks", "D:/B__P6_Analyst/A__P6_1mLU", "D:/B__P6_Analyst/A__P6_10mLU"]
-	
-	# Loop through the list and if the folders do not exist then they are created
-	for i in f_list:
-		if not os.path.exists(i):
-			os.makedirs(i)
-			
-			
-	# Masks
-	source = os.listdir("G:/ImageryServer/A__P6.../Masks")
-	destination = "D:/..."
-	for files in source:
-		if files.endswith("A*"):
-			shutil.copy(files,destination)
-	
-	# Temp
-	source = os.listdir("G:/ImageryServer/A__P6.../Temp")
-	destination = "D:/..."
-	for files in source:
-		if files.endswith(".txt"):
-			shutil.copy(files,destination)
-			
-	# 1 m LU
-	source = os.listdir("G:/ImageryServer/A__P6.../1mLU")
-	destination = "D:/..."
-	for files in source:
-		if files.endswith(""):
-			shutil.copy(files,destination)
 
 def turf_1(CoName, CoGDB, INR, IR, INRmask, TCI):
 
